@@ -5,8 +5,16 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:Proghebdo"
              mc:Ignorable="d" Margin="0" MinWidth="20"
-             d:DesignHeight="450" d:DesignWidth="50">
-    <Grid Background="#FFAA0303">
-            
+             d:DesignHeight="450" d:DesignWidth="50" RenderTransformOrigin="0.5,0.5">
+    <UserControl.RenderTransform>
+        <TransformGroup>
+            <ScaleTransform/>
+            <SkewTransform/>
+            <RotateTransform/>
+            <TranslateTransform x:Name="deplace"  X="1"/>
+        </TransformGroup>
+    </UserControl.RenderTransform>
+    <Grid Background="#FFAA0303" RenderTransformOrigin="0.5,0.5">
+
     </Grid>
 </UserControl>

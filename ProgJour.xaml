@@ -42,17 +42,18 @@
                     VerticalAlignment="Top" Width="44" Padding="0" FontSize="10" HorizontalContentAlignment="Right"/>
                 <Button Content="+" HorizontalAlignment="Left" Height="17" Margin="4,21,0,0" VerticalAlignment="Top" Width="36" Padding="0,-3,0,0" VerticalContentAlignment="Top" UseLayoutRounding="True" Click="Button_Click"/>
             </Grid>
-            <Grid x:Name="GdJour" Margin="0,40,0,0" Width="100" Background="#3E91EA99" />
+            <Grid x:Name="GdJour" MouseLeftButtonDown="Epingle_MouseLeftButtonDown" MouseMove="Epingle_MouseMove"  
+                                MouseLeftButtonUp="Epingle_MouseLeftButtonUp"  Margin="0,40,0,0" Width="100" Background="#3E91EA99" >
+                <local:epingle  MouseLeftButtonDown="Epingle_MouseLeftButtonDown_1"  MouseRightButtonUp="Tmp_MouseRightButtonUp"
+                                x:Name="Epingle" Height="428" Margin="0,10,0,0" 
+                                VerticalAlignment="Top" Width="5" HorizontalAlignment="Left" RenderTransformOrigin="0.5,0.5">
+                </local:epingle>
+                <local:epingle  MouseLeftButtonDown="Epingle_MouseLeftButtonDown_1" MouseRightButtonUp="Tmp_MouseRightButtonUp"
+                                 Height="428" Margin="0,10,0,0" 
+                                VerticalAlignment="Top" Width="5" HorizontalAlignment="Left" RenderTransformOrigin="0.5,0.5">
+                </local:epingle>
+
+            </Grid>
           </StackPanel>
-           <local:epingle Height="428" Margin="0,10,0,0" VerticalAlignment="Top" Width="5" RenderTransformOrigin="0.5,0.5">
-                <local:epingle.RenderTransform>
-                    <TransformGroup>
-                        <ScaleTransform ScaleX="-1"/>
-                        <SkewTransform/>
-                        <RotateTransform/>
-                        <TranslateTransform/>
-                    </TransformGroup>
-                </local:epingle.RenderTransform>
-            </local:epingle>
    </Grid>
 </UserControl>

@@ -53,10 +53,61 @@ namespace Proghebdo
             }
 
         }
+        Point posjoy;
+        Point pointcurrent;
+          double MovX_Val = 0;
+            double MovY_Val = 0;
+
+        private void Epingle_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            if (current == null) { return; }
+             posjoy = e.GetPosition(current);
+            pointcurrent = e.GetPosition(GdJour);
+  
+
+        }
+
+        private void Epingle_MouseMove(object sender, MouseEventArgs e)
+        {
+            if (current == null) { return; }
+            if (e.LeftButton == MouseButtonState.Pressed == true)
+            {
+                pointcurrent = e.GetPosition(GdJour);
+                current.deplace.X = pointcurrent.X - posjoy.X;
+            }
+
+        }
+
+        private void Epingle_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
+        {
+            current = null;
+ 
+        }
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
+            epingle tmp= new epingle
+            {
+                Height = 428,
+                Margin = new Thickness(0, 10, 0, 0),
+                VerticalAlignment = VerticalAlignment.Top,
+                HorizontalAlignment = HorizontalAlignment.Left,
+            };
+            tmp.MouseLeftButtonDown += Epingle_MouseLeftButtonDown_1;
+            tmp.MouseRightButtonUp += Tmp_MouseRightButtonUp;
+            GdJour.Children.Add(tmp);
+           
+        }
 
+        private void Tmp_MouseRightButtonUp(object sender, MouseButtonEventArgs e)
+        {
+            GdJour.Children.Remove((epingle)sender);
+        }
+
+        epingle current = null;
+        private void Epingle_MouseLeftButtonDown_1(object sender, MouseButtonEventArgs e)
+        {
+            current = (epingle)(sender);
         }
     }
 }

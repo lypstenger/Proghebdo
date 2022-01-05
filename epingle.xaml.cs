@@ -20,9 +20,20 @@ namespace Proghebdo
     /// </summary>
     public partial class epingle : UserControl
     {
+        public double Deplace
+        {
+            get
+            {
+                return deplace.X;
+            }
+            set
+            {
+                deplace.X = value;
+            }
+        }
         public epingle()
         {
             InitializeComponent();
         }
-    }
+      }
 }
