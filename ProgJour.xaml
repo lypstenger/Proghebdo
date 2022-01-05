@@ -1,0 +1,58 @@
+﻿<UserControl x:Class="Proghebdo.ProgJour"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Proghebdo"
+             mc:Ignorable="d" SizeChanged="UserControl_SizeChanged"
+             d:DesignHeight="450" d:DesignWidth="800" MinWidth="160">
+    <Grid x:Name="Gdecran" Tag="V" Margin="0,0,1,0">
+        <Line Tag="H"  X1="0" Y1="10" X2="{Binding ElementName=Gdecran,Path=ActualWidth}" Y2="10" Stroke="Red" Margin="60,0,0,0" />
+        <Line X1="0" Y1="20" X2="{Binding ElementName=Gdecran,Path=ActualWidth}" Y2="20" Stroke="Red" Margin="60,0,0,0" Tag="H" />
+        <Line X1="0" Y1="20" X2="{Binding ElementName=Gdecran,Path=ActualWidth}" Y2="20" Stroke="Red" Margin="60,0,0,0" Tag="H" />
+        <Line X1="0" Y1="20" X2="{Binding ElementName=Gdecran,Path=ActualWidth}" Y2="20" Stroke="Red" Margin="60,0,0,0" Tag="H" />
+        <Line X1="0" Y1="20" X2="{Binding ElementName=Gdecran,Path=ActualWidth}" Y2="20" Stroke="Red" Margin="60,0,0,0" Tag="H" />
+        <Line X1="0" Y1="20" X2="{Binding ElementName=Gdecran,Path=ActualWidth}" Y2="20" Stroke="Red" Margin="60,0,0,0" Tag="H" />
+        <Line Tag="V"  X1="100" Stroke="#FF2B8D07" Margin="60,0,0,0" X2="100" Y2="{Binding ElementName=Gdecran,Path=ActualHeight}" />
+        <Line X1="100" Stroke="#FF2B8D07" Margin="60,0,0,0" Tag="V" X2="100" Y2="{Binding ElementName=Gdecran,Path=ActualHeight}" />
+        <Line X1="100" Stroke="#FF2B8D07" Margin="60,0,0,0" Tag="V" X2="100" Y2="{Binding ElementName=Gdecran,Path=ActualHeight}" />
+        <Line X1="100" Stroke="#FF2B8D07" Margin="60,0,0,0" Tag="V" X2="100" Y2="{Binding ElementName=Gdecran,Path=ActualHeight}" />
+        <Line X1="100" Stroke="#FF2B8D07" Margin="60,0,0,0" Tag="V" X2="100" Y2="{Binding ElementName=Gdecran,Path=ActualHeight}" />
+        <Line X1="100" Stroke="#FF2B8D07" Margin="60,0,0,0" Tag="V" X2="100" Y2="{Binding ElementName=Gdecran,Path=ActualHeight}" />
+        <Line Tag="V"  X1="100" Stroke="#FF2B8D07" Margin="60,0,0,0" X2="100" Y2="{Binding ElementName=Gdecran,Path=ActualHeight}" />
+        <Line X1="100" Stroke="#FF2B8D07" Margin="60,0,0,0" Tag="V" X2="100" Y2="{Binding ElementName=Gdecran,Path=ActualHeight}" />
+        <Line X1="100" Stroke="#FF2B8D07" Margin="60,0,0,0" Tag="V" X2="100" Y2="{Binding ElementName=Gdecran,Path=ActualHeight}" />
+        <Line X1="100" Stroke="#FF2B8D07" Margin="60,0,0,0" Tag="V" X2="100" Y2="{Binding ElementName=Gdecran,Path=ActualHeight}" />
+        <Line X1="100" Stroke="#FF2B8D07" Margin="60,0,0,0" Tag="V" X2="100" Y2="{Binding ElementName=Gdecran,Path=ActualHeight}" />
+        <Line X1="100" Stroke="#FF2B8D07" Margin="60,0,0,0" Tag="V" X2="100" Y2="{Binding ElementName=Gdecran,Path=ActualHeight}" />
+        <Line X1="100" Stroke="#FF2B8D07" Margin="60,0,0,0" Tag="V" X2="100" Y2="{Binding ElementName=Gdecran,Path=ActualHeight}" />
+        <StackPanel x:Name="Skmarge"   Orientation="Horizontal" Margin="0,0,0,12">
+            <Grid x:Name="Gdmarge" Margin="0,0,0,-12" Width="60" Background="#FF7BD9EE">
+                <Label Content="10" HorizontalAlignment="Right" Height="12" Margin="0,9,5,0" 
+               VerticalAlignment="Top" Width="44" Padding="0" FontSize="10" HorizontalContentAlignment="Right"/>
+                <Label Content="10" HorizontalAlignment="Right" Height="12" Margin="0,0,5,0" 
+                    VerticalAlignment="Top" Width="44" Padding="0" FontSize="10" HorizontalContentAlignment="Right"/>
+                <Label Content="10" HorizontalAlignment="Right" Height="12" Margin="0,0,5,0" 
+                    VerticalAlignment="Top" Width="44" Padding="0" FontSize="10" HorizontalContentAlignment="Right"/>
+                <Label Content="10" HorizontalAlignment="Right" Height="12" Margin="0,0,5,0" 
+                    VerticalAlignment="Top" Width="44" Padding="0" FontSize="10" HorizontalContentAlignment="Right"/>
+                <Label Content="10" HorizontalAlignment="Right" Height="12" Margin="0,0,5,0" 
+                    VerticalAlignment="Top" Width="44" Padding="0" FontSize="10" HorizontalContentAlignment="Right"/>
+                <Label Content="10" HorizontalAlignment="Right" Height="12" Margin="0,0,5,0" 
+                    VerticalAlignment="Top" Width="44" Padding="0" FontSize="10" HorizontalContentAlignment="Right"/>
+                <Button Content="+" HorizontalAlignment="Left" Height="17" Margin="4,21,0,0" VerticalAlignment="Top" Width="36" Padding="0,-3,0,0" VerticalContentAlignment="Top" UseLayoutRounding="True" Click="Button_Click"/>
+            </Grid>
+            <Grid x:Name="GdJour" Margin="0,40,0,0" Width="100" Background="#3E91EA99" />
+          </StackPanel>
+           <local:epingle Height="428" Margin="0,10,0,0" VerticalAlignment="Top" Width="5" RenderTransformOrigin="0.5,0.5">
+                <local:epingle.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform ScaleX="-1"/>
+                        <SkewTransform/>
+                        <RotateTransform/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </local:epingle.RenderTransform>
+            </local:epingle>
+   </Grid>
+</UserControl>
