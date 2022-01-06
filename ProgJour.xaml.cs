@@ -66,6 +66,8 @@ namespace Proghebdo
   
 
         }
+                       public event Action<double, double> position;
+
 
         private void Epingle_MouseMove(object sender, MouseEventArgs e)
         {
@@ -73,7 +75,13 @@ namespace Proghebdo
             if (e.LeftButton == MouseButtonState.Pressed == true)
             {
                 pointcurrent = e.GetPosition(GdJour);
-                current.deplace.X = pointcurrent.X - posjoy.X;
+                current.deplace.X = (pointcurrent.X - posjoy.X) + 25;
+
+                 if (position != null)
+                {
+                    position(current.deplace.X, GdJour.ActualWidth);
+                }
+
             }
 
         }
@@ -89,7 +97,7 @@ namespace Proghebdo
             epingle tmp= new epingle
             {
                 Height = 428,
-                Margin = new Thickness(0, 10, 0, 0),
+                Margin = new Thickness(-25, -30, 0, 0),
                 VerticalAlignment = VerticalAlignment.Top,
                 HorizontalAlignment = HorizontalAlignment.Left,
             };

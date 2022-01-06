@@ -20,10 +20,19 @@ namespace Proghebdo
     /// </summary>
     public partial class MainWindow : Window
     {
+        List<Label> lesdbgs = new List<Label>();
         public MainWindow()
         {
             InitializeComponent();
+            programmateurJour.position += ProgrammateurJour_position;
+           lesdbgs = sk1.Children.OfType<Label>().ToList();
+
         }
 
-       }
+        private void ProgrammateurJour_position(double arg1, double arg2)
+        {
+            lesdbgs[0].Content = arg1;
+            lesdbgs[1].Content = arg2;
+        }
+    }
 }
