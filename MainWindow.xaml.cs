@@ -29,10 +29,14 @@ namespace Proghebdo
 
         }
 
-        private void ProgrammateurJour_position(double arg1, double arg2)
+        private void ProgrammateurJour_position(double[] arg1, double arg2)
         {
-            lesdbgs[0].Content = arg1;
-            lesdbgs[1].Content = arg2;
+
+            for (int x = 0; x < arg1.Length; x++)
+            {
+                lesdbgs[x].Content = arg1[x].ToString("0.000");
+            }
+           
         }
     }
 }

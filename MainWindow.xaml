@@ -7,16 +7,6 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="714" Width="1294">
     <Grid>
-        <local:ProgJour x:Name="programmateurJour" HorizontalAlignment="Left" Height="340" Margin="22,22,0,0" VerticalAlignment="Top" Width="1081" RenderTransformOrigin="0.5,0.5">
-            <local:ProgJour.RenderTransform>
-                <TransformGroup>
-                    <ScaleTransform/>
-                    <SkewTransform AngleY="-0.098"/>
-                    <RotateTransform/>
-                    <TranslateTransform Y="-0.498"/>
-                </TransformGroup>
-            </local:ProgJour.RenderTransform>
-        </local:ProgJour>
         <StackPanel x:Name="sk1" HorizontalAlignment="Right" Height="285" Margin="0,70,59,0" VerticalAlignment="Top" Width="88">
             <Label Content="0" Margin="0"/>
             <Label Content="0" Margin="0"/>
@@ -28,5 +18,6 @@
             <Label Content="0" Margin="0"/>
             <Label Content="0" Margin="0"/>
         </StackPanel>
+        <local:ProgJour x:Name="programmateurJour" Margin="85,70,228,227"/>
     </Grid>
 </Window>

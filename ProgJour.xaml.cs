@@ -33,11 +33,27 @@ namespace Proghebdo
 
         }
 
+        private double Coeffquartheure;
         private void UserControl_SizeChanged(object sender, SizeChangedEventArgs e)
         {
+
             GdJour.Width = Gdecran.ActualWidth - 60;
+            Coeffquartheure = GdJour.Width / 96;
+            int k =(int) (GdJour.Width / 96);
+            GdJour.Width = k * 96;
+            if (position != null )
+            {
+           //if (current == null) { return; }
+                 double[] ds = new double[] {
+                     (double)k,Coeffquartheure
+                    };
+
+                position(ds, GdJour.ActualWidth);
+            }
+
+
             double pasTemp = Skmarge.ActualHeight /6;
-            double pasTime = GdJour.Width / (LsligneHeure.Count-1);
+            double pasTime = (GdJour.Width / 12);
             GdJour.Margin = new Thickness(0, (pasTemp), 0, 0);
             for (int x = 0; x < 6; x++)
             {
@@ -48,9 +64,10 @@ namespace Proghebdo
             for (int x = 0; x < LsligneHeure.Count; x++)
             {
                 LsligneHeure[x].X1 = LsligneHeure[x].X2 = pasTime * (x );
-                //LsEtiquettesTemp[x].Margin = new Thickness(0, (pasTemp * (x + 1) - 6), 5, 0);
-                //LsEtiquettesTemp[x].Content = 25 - (x * 5);
+                LsligneHeure[x].Y1 = GdJour.Margin.Top;
+                LsligneHeure[x].Y2 = Skmarge.ActualHeight;
             }
+   
 
         }
         Point posjoy;
@@ -58,15 +75,28 @@ namespace Proghebdo
           double MovX_Val = 0;
             double MovY_Val = 0;
 
+        Point pointpas;
         private void Epingle_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
             if (current == null) { return; }
              posjoy = e.GetPosition(current);
             pointcurrent = e.GetPosition(GdJour);
-  
+            pointpas = e.GetPosition(GdJour);
+            if (position != null)
+            {
+                double[] ds = new double[] {
+                        current.deplace.X,
+                        pointcurrent.X,
+                    posjoy.X,
+                    (pointcurrent.X - pointpas.X),
+                    };
+
+                position(ds, GdJour.ActualWidth);
+            }
+
 
         }
-                       public event Action<double, double> position;
+        public event Action<double[], double> position;
 
 
         private void Epingle_MouseMove(object sender, MouseEventArgs e)
@@ -75,11 +105,40 @@ namespace Proghebdo
             if (e.LeftButton == MouseButtonState.Pressed == true)
             {
                 pointcurrent = e.GetPosition(GdJour);
-                current.deplace.X = (pointcurrent.X - posjoy.X) + 25;
+
+
+
+                //if (Math.Abs(pointcurrent.X -pointpas.X) < Coeffquartheure) { return; }
+
+
+
+                if (pointcurrent.X < 0) { pointcurrent.X = 0; }
+
+                if (pointcurrent.X > GdJour.Width) {
+                    pointcurrent.X = GdJour.Width; 
+                }
+
+
+
+                int intpas =(int)( pointcurrent.X / Coeffquartheure);
+                //pointcurrent.X = intpas ;
+                pointpas.X = pointcurrent.X;
+                current.deplace.X = (pointcurrent.X - posjoy.X) +22;
+
+                current.Heure = pointcurrent.X.ToString("00,000");
 
                  if (position != null)
                 {
-                    position(current.deplace.X, GdJour.ActualWidth);
+                    double[] ds = new double[] { 
+                        current.deplace.X, 
+                        GdJour.ActualWidth,
+                    Coeffquartheure,
+                    (pointcurrent.X - pointpas.X),
+                    posjoy.X,
+                    (double)intpas
+                    };
+
+                    position(ds, GdJour.ActualWidth);
                 }
 
             }
@@ -97,7 +156,8 @@ namespace Proghebdo
             epingle tmp= new epingle
             {
                 Height = 428,
-                Margin = new Thickness(-25, -30, 0, 0),
+                Width=44,
+                Margin = new Thickness(-22, -30, 0, 0),
                 VerticalAlignment = VerticalAlignment.Top,
                 HorizontalAlignment = HorizontalAlignment.Left,
             };

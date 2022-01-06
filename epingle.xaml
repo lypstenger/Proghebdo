@@ -14,7 +14,7 @@
             <TranslateTransform x:Name="deplace"  X="1"/>
         </TransformGroup>
     </UserControl.RenderTransform>
-    <Grid Background="#02AA0303" RenderTransformOrigin="0.5,0.5" Cursor="SizeWE">
+    <Grid Background="#00AA0303" RenderTransformOrigin="0.5,0.5" Cursor="SizeWE">
         <Rectangle Fill="#FF7D77E2" Margin="0,45,0,0" HorizontalAlignment="Center" Width="8"/>
         <Viewbox xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" Stretch="Uniform" Margin="0,27,0,0" VerticalAlignment="Top" Height="20">
             <Canvas Name="svg9493" Width="50" Height="50">
@@ -98,6 +98,6 @@
                 <!--Unknown tag: metadata-->
             </Canvas>
         </Viewbox>
-        <Label VerticalAlignment="Top" HorizontalAlignment="Center" Background="#FF91F9BC" Margin="0">12:00</Label>
+        <Label x:Name="LbHeure" VerticalAlignment="Top" HorizontalAlignment="Center" Background="#FF91F9BC" Margin="0">12:00</Label>
     </Grid>
 </UserControl>

@@ -40,20 +40,21 @@
                     VerticalAlignment="Top" Width="44" Padding="0" FontSize="10" HorizontalContentAlignment="Right"/>
                 <Label Content="10" HorizontalAlignment="Right" Height="12" Margin="0,0,5,0" 
                     VerticalAlignment="Top" Width="44" Padding="0" FontSize="10" HorizontalContentAlignment="Right"/>
-                <Button Content="+" HorizontalAlignment="Left" Height="17" VerticalAlignment="Top" Width="36" Padding="0,-3,0,0" VerticalContentAlignment="Top" UseLayoutRounding="True" Click="Button_Click" Margin="10,4,0,0"/>
+                <Button Content="+" HorizontalAlignment="Left" Height="17" VerticalAlignment="Top" Width="36" Padding="0,-3,0,0" 
+                        VerticalContentAlignment="Top" UseLayoutRounding="True" Click="Button_Click" Margin="10,4,0,0"/>
             </Grid>
             <Grid x:Name="GdJour" MouseLeftButtonDown="Epingle_MouseLeftButtonDown" MouseMove="Epingle_MouseMove"  
                                 MouseLeftButtonUp="Epingle_MouseLeftButtonUp"  Margin="0,40,0,0" Width="100" Background="#3E91EA99" >
-                <local:epingle  MouseLeftButtonDown="Epingle_MouseLeftButtonDown_1"  MouseRightButtonUp="Tmp_MouseRightButtonUp"
-                                x:Name="Epingle" Height="428" Margin="-25,-30,0,0" 
-                                VerticalAlignment="Top" Width="44" HorizontalAlignment="Left" RenderTransformOrigin="0.5,0.5">
+               <Label Margin="62,-30,0,0" VerticalAlignment="Top" Background="#FFE82020" HorizontalAlignment="Left">essai</Label>
+               <local:epingle  MouseLeftButtonDown="Epingle_MouseLeftButtonDown_1"  MouseRightButtonUp="Tmp_MouseRightButtonUp"
+                                x:Name="Epingle" Height="428" Margin="-22,-30,0,0" 
+                                VerticalAlignment="Top" Width="44" HorizontalAlignment="Left">
                 </local:epingle>
                 <local:epingle  MouseLeftButtonDown="Epingle_MouseLeftButtonDown_1" MouseRightButtonUp="Tmp_MouseRightButtonUp"
-                                 Height="428" Margin="-25,-30,0,0" 
-                                VerticalAlignment="Top" Width="44" HorizontalAlignment="Left" RenderTransformOrigin="0.5,0.5">
+                                 Height="428" Margin="-22,-30,0,0" 
+                                VerticalAlignment="Top" Width="44" HorizontalAlignment="Left">
                 </local:epingle>
-                <Label Margin="62,-30,0,0" VerticalAlignment="Top" Background="#FFE82020" HorizontalAlignment="Left">essai</Label>
-            </Grid>
+              </Grid>
         </StackPanel>
     </Grid>
 </UserControl>

@@ -20,6 +20,18 @@ namespace Proghebdo
     /// </summary>
     public partial class epingle : UserControl
     {
+
+        public string Heure
+        {
+            get
+            {
+                return (string)LbHeure.Content;
+            }
+            set
+            {
+                LbHeure.Content = value;
+            }
+        }
         public double Deplace
         {
             get
