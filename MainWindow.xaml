@@ -18,6 +18,6 @@
             <Label Content="0" Margin="0"/>
             <Label Content="0" Margin="0"/>
         </StackPanel>
-        <local:ProgJour x:Name="programmateurJour" Margin="85,70,228,227"/>
+        <local:ProgJour x:Name="programmateurJour" Margin="69,73,324,122"/>
     </Grid>
 </Window>

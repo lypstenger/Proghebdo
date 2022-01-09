@@ -38,13 +38,14 @@ namespace Proghebdo
         {
 
             GdJour.Width = Gdecran.ActualWidth - 60;
-            Coeffquartheure = GdJour.Width / 96;
-            int k =(int) (GdJour.Width / 96);
+            int k = (int)(GdJour.Width / 96);
             GdJour.Width = k * 96;
-            if (position != null )
+            Coeffquartheure = GdJour.Width / 96;
+
+            if (position != null)
             {
-           //if (current == null) { return; }
-                 double[] ds = new double[] {
+                //if (current == null) { return; }
+                double[] ds = new double[] {
                      (double)k,Coeffquartheure
                     };
 
@@ -52,7 +53,7 @@ namespace Proghebdo
             }
 
 
-            double pasTemp = Skmarge.ActualHeight /6;
+            double pasTemp = Skmarge.ActualHeight / 6;
             double pasTime = (GdJour.Width / 12);
             GdJour.Margin = new Thickness(0, (pasTemp), 0, 0);
             for (int x = 0; x < 6; x++)
@@ -63,19 +64,23 @@ namespace Proghebdo
             }
             for (int x = 0; x < LsligneHeure.Count; x++)
             {
-                LsligneHeure[x].X1 = LsligneHeure[x].X2 = pasTime * (x );
+                LsligneHeure[x].X1 = LsligneHeure[x].X2 = pasTime * (x);
                 LsligneHeure[x].Y1 = GdJour.Margin.Top;
                 LsligneHeure[x].Y2 = Skmarge.ActualHeight;
             }
-   
+
+            foreach (epingle ep in GdJour.Children.OfType<epingle>().ToList())
+            {
+                ep.Max = GdJour.Height;
+            }
 
         }
         Point posjoy;
         Point pointcurrent;
-          double MovX_Val = 0;
-            double MovY_Val = 0;
-
         Point pointpas;
+
+        public event Action<double[], double> position;
+
         private void Epingle_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
             if (current == null) { return; }
@@ -94,10 +99,7 @@ namespace Proghebdo
                 position(ds, GdJour.ActualWidth);
             }
 
-
         }
-        public event Action<double[], double> position;
-
 
         private void Epingle_MouseMove(object sender, MouseEventArgs e)
         {
@@ -105,28 +107,26 @@ namespace Proghebdo
             if (e.LeftButton == MouseButtonState.Pressed == true)
             {
                 pointcurrent = e.GetPosition(GdJour);
+                pointcurrent.X = pointcurrent.X + (posjoy.X - 22);
 
 
+                  int k =(int) Math.Round(((pointcurrent.X - posjoy.X) + 22)/Coeffquartheure );
+                current.deplace.X = k* Coeffquartheure;
+                if (current.deplace.X < 0) { current.deplace.X = 0; }
 
-                //if (Math.Abs(pointcurrent.X -pointpas.X) < Coeffquartheure) { return; }
-
-
-
-                if (pointcurrent.X < 0) { pointcurrent.X = 0; }
-
-                if (pointcurrent.X > GdJour.Width) {
-                    pointcurrent.X = GdJour.Width; 
+                if (current.deplace.X > GdJour.Width) {
+                    current.deplace.X = GdJour.Width; 
                 }
 
 
+                //string t = convertHeure(current.deplace.X);
+                //current.Heure = current.deplace.X.ToString("000");
+                current.Heure = convertHeure(current.deplace.X);
+
 
                 int intpas =(int)( pointcurrent.X / Coeffquartheure);
-                //pointcurrent.X = intpas ;
-                pointpas.X = pointcurrent.X;
-                current.deplace.X = (pointcurrent.X - posjoy.X) +22;
 
-                current.Heure = pointcurrent.X.ToString("00,000");
-
+ 
                  if (position != null)
                 {
                     double[] ds = new double[] { 
@@ -144,13 +144,20 @@ namespace Proghebdo
             }
 
         }
-
-        private void Epingle_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
+       private void Epingle_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
         {
             current = null;
  
         }
+       private string convertHeure(double pos)
+        {
+            double nbqh = pos / Coeffquartheure;
+            int h =(int)( nbqh / 4);
+            nbqh = nbqh - (4 * h);
 
+            return h.ToString("00") + ":" + (nbqh * 15).ToString("00");
+        }
+  
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             epingle tmp= new epingle

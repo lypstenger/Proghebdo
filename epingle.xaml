@@ -5,17 +5,17 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:Proghebdo"
              mc:Ignorable="d" Margin="0" MinWidth="20" Width="50"
-             d:DesignHeight="450"  RenderTransformOrigin="0.5,0.5">
+             RenderTransformOrigin="0.5,0.5">
     <UserControl.RenderTransform>
         <TransformGroup>
             <ScaleTransform/>
             <SkewTransform/>
             <RotateTransform/>
-            <TranslateTransform x:Name="deplace"  X="1"/>
+            <TranslateTransform x:Name="deplace"  X="0"/>
         </TransformGroup>
     </UserControl.RenderTransform>
-    <Grid Background="#00AA0303" RenderTransformOrigin="0.5,0.5" Cursor="SizeWE">
-        <Rectangle Fill="#FF7D77E2" Margin="0,45,0,0" HorizontalAlignment="Center" Width="8"/>
+    <Grid MouseMove="Epingle_MouseMove"  x:Name="gdTemp" Background="#00AA0303" RenderTransformOrigin="0.5,0.5" Cursor="SizeWE">
+        <Rectangle x:Name="rectangletemperature" Fill="#FF7D77E2" Margin="0,47,0,0"  HorizontalAlignment="Center" Width="8"/>
         <Viewbox xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" Stretch="Uniform" Margin="0,27,0,0" VerticalAlignment="Top" Height="20">
             <Canvas Name="svg9493" Width="50" Height="50">
                 <Canvas.RenderTransform>
@@ -98,6 +98,197 @@
                 <!--Unknown tag: metadata-->
             </Canvas>
         </Viewbox>
+        <Grid x:Name="Gdpostemp" MouseLeftButtonDown="Epingle_MouseLeftButtonDown"  MouseLeftButtonUp="Epingle_MouseLeftButtonUp" Height="14"  Margin="0,27,0,0" HorizontalAlignment="Stretch" VerticalAlignment="Top" Cursor="SizeNS" RenderTransformOrigin="0.5,0.5" >
+            <Grid.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform/>
+                    <TranslateTransform x:Name="DeplaceTemp"  Y="0"/>
+                </TransformGroup>
+            </Grid.RenderTransform>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="14"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="14"/>
+            </Grid.ColumnDefinitions>
+            <Viewbox Grid.Column="0" Stretch="Uniform" Margin="0,0,0,0" VerticalAlignment="Top" Height="14" >
+                <Canvas  Width="50" Height="50" RenderTransformOrigin="0.5,0.5">
+                    <Canvas.Resources>
+                        <LinearGradientBrush  x:Key="linearGradient28648" MappingMode="Absolute" StartPoint="23,28" EndPoint="23,27">
+                            <LinearGradientBrush.GradientStops>
+                                <GradientStopCollection>
+                                    <GradientStop Color="#00FFFFFF" Offset="0"/>
+                                    <GradientStop Color="#DFFFFFFF" Offset="1"/>
+                                </GradientStopCollection>
+                            </LinearGradientBrush.GradientStops>
+                            <LinearGradientBrush.Transform>
+                                <MatrixTransform Matrix=".38999 0 0 .40394 2.157 29.836"/>
+                            </LinearGradientBrush.Transform>
+                        </LinearGradientBrush>
+                        <LinearGradientBrush  x:Key="linearGradient28651" MappingMode="Absolute" StartPoint="23,27" EndPoint="23,28">
+                            <LinearGradientBrush.GradientStops>
+                                <GradientStopCollection>
+                                    <GradientStop Color="#00039A" Offset="0"/>
+                                    <GradientStop Color="#AFA5FF" Offset="1"/>
+                                </GradientStopCollection>
+                            </LinearGradientBrush.GradientStops>
+                            <LinearGradientBrush.Transform>
+                                <TranslateTransform X="-11.988" Y="13.6"/>
+                            </LinearGradientBrush.Transform>
+                        </LinearGradientBrush>
+                        <LinearGradientBrush  x:Key="linearGradient28654" MappingMode="Absolute" StartPoint="23,27" EndPoint="24,28">
+                            <LinearGradientBrush.GradientStops>
+                                <GradientStopCollection>
+                                    <GradientStop Color="#828282" Offset="0"/>
+                                    <GradientStop Color="#5A929292" Offset="1"/>
+                                </GradientStopCollection>
+                            </LinearGradientBrush.GradientStops>
+                            <LinearGradientBrush.Transform>
+                                <TranslateTransform X="-11.988" Y="13.6"/>
+                            </LinearGradientBrush.Transform>
+                        </LinearGradientBrush>
+                        <LinearGradientBrush x:Key="linearGradient28634" MappingMode="Absolute" StartPoint="23,26" EndPoint="23,28">
+                            <LinearGradientBrush.GradientStops>
+                                <GradientStopCollection>
+                                    <GradientStop Color="#ADADAD" Offset="0"/>
+                                    <GradientStop Color="#F0F0F0" Offset="1"/>
+                                </GradientStopCollection>
+                            </LinearGradientBrush.GradientStops>
+                            <LinearGradientBrush.Transform>
+                                <TranslateTransform X="-12" Y="13.6"/>
+                            </LinearGradientBrush.Transform>
+                        </LinearGradientBrush>
+                    </Canvas.Resources>
+                    <Canvas.RenderTransform>
+                        <TransformGroup>
+                            <ScaleTransform/>
+                            <SkewTransform/>
+                            <RotateTransform Angle="-90"/>
+                            <TranslateTransform X="0"/>
+                        </TransformGroup>
+                    </Canvas.RenderTransform>
+                    <!--Unknown tag: sodipodi:namedview-->
+                    <Canvas >
+                        <Canvas >
+                            <Canvas.RenderTransform>
+                                <MatrixTransform Matrix="31.25 0 0 31.25 -325 -1250"/>
+                            </Canvas.RenderTransform>
+                            <Path xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"  Fill="{StaticResource linearGradient28634}">
+                                <Path.Data>
+                                    <PathGeometry Figures="m12 41.6h-1.6l0.8-1.6 0.8 1.6z" FillRule="NonZero"/>
+                                </Path.Data>
+                            </Path>
+                            <Path  Fill="{StaticResource linearGradient28654}">
+                                <Path.Data>
+                                    <PathGeometry Figures="m11.2 40.256l-0.625 1.25h1.25l-0.625-1.25z" FillRule="NonZero"/>
+                                </Path.Data>
+                            </Path>
+                            <Path Fill="{StaticResource linearGradient28651}">
+                                <Path.Data>
+                                    <PathGeometry Figures="m11.2 40.381l-0.531 1.063h1.062l-0.531-1.063z" FillRule="NonZero"/>
+                                </Path.Data>
+                            </Path>
+                            <Path  Fill="{StaticResource linearGradient28648}">
+                                <Path.Data>
+                                    <PathGeometry Figures="m11.176 40.553c-0.02 0.007-0.037 0.02-0.049 0.038-0.005 0.004-0.009 0.008-0.012 0.012l-0.207 0.43c-0.009 0.015-0.013 0.032-0.013 0.05 0.002 0.013 0.006 0.026 0.013 0.038 0.002 0.009 0.006 0.017 0.012 0.025 0.003 0.005 0.007 0.009 0.012 0.013 0.007 0.005 0.016 0.009 0.024 0.012 0.011 0.007 0.024 0.011 0.037 0.013h0.414c0.029-0.001 0.056-0.014 0.073-0.038 0.005-0.004 0.009-0.008 0.012-0.012 0.007-0.012 0.011-0.025 0.013-0.038 0-0.018-0.004-0.035-0.013-0.051 0.001-0.004 0.001-0.008 0-0.012l-0.207-0.43c-0.003-0.004-0.007-0.008-0.012-0.012-0.022-0.032-0.061-0.047-0.097-0.038z" FillRule="NonZero"/>
+                                </Path.Data>
+                            </Path>
+                        </Canvas>
+                    </Canvas>
+                    <!--Unknown tag: metadata-->
+                </Canvas>
+            </Viewbox>
+            <Label x:Name="LbTemp" Grid.Column="1" Background="#FF161253" Content="15" FontSize="8" Padding="0" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Foreground="#FF7EF383" RenderTransformOrigin="0.5,0.5"></Label>
+            <Viewbox Stretch="Uniform" Margin="0,0,0,0" VerticalAlignment="Top" Height="14" Grid.Column="2">
+                <Canvas  Width="50" Height="50" RenderTransformOrigin="0.5,0.5">
+                    <Canvas.Resources>
+                        <LinearGradientBrush  x:Key="linearGradient28648" MappingMode="Absolute" StartPoint="23,28" EndPoint="23,27">
+                            <LinearGradientBrush.GradientStops>
+                                <GradientStopCollection>
+                                    <GradientStop Color="#00FFFFFF" Offset="0"/>
+                                    <GradientStop Color="#DFFFFFFF" Offset="1"/>
+                                </GradientStopCollection>
+                            </LinearGradientBrush.GradientStops>
+                            <LinearGradientBrush.Transform>
+                                <MatrixTransform Matrix=".38999 0 0 .40394 2.157 29.836"/>
+                            </LinearGradientBrush.Transform>
+                        </LinearGradientBrush>
+                        <LinearGradientBrush  x:Key="linearGradient28651" MappingMode="Absolute" StartPoint="23,27" EndPoint="23,28">
+                            <LinearGradientBrush.GradientStops>
+                                <GradientStopCollection>
+                                    <GradientStop Color="#00039A" Offset="0"/>
+                                    <GradientStop Color="#AFA5FF" Offset="1"/>
+                                </GradientStopCollection>
+                            </LinearGradientBrush.GradientStops>
+                            <LinearGradientBrush.Transform>
+                                <TranslateTransform X="-11.988" Y="13.6"/>
+                            </LinearGradientBrush.Transform>
+                        </LinearGradientBrush>
+                        <LinearGradientBrush  x:Key="linearGradient28654" MappingMode="Absolute" StartPoint="23,27" EndPoint="24,28">
+                            <LinearGradientBrush.GradientStops>
+                                <GradientStopCollection>
+                                    <GradientStop Color="#828282" Offset="0"/>
+                                    <GradientStop Color="#5A929292" Offset="1"/>
+                                </GradientStopCollection>
+                            </LinearGradientBrush.GradientStops>
+                            <LinearGradientBrush.Transform>
+                                <TranslateTransform X="-11.988" Y="13.6"/>
+                            </LinearGradientBrush.Transform>
+                        </LinearGradientBrush>
+                        <LinearGradientBrush x:Key="linearGradient28634" MappingMode="Absolute" StartPoint="23,26" EndPoint="23,28">
+                            <LinearGradientBrush.GradientStops>
+                                <GradientStopCollection>
+                                    <GradientStop Color="#ADADAD" Offset="0"/>
+                                    <GradientStop Color="#F0F0F0" Offset="1"/>
+                                </GradientStopCollection>
+                            </LinearGradientBrush.GradientStops>
+                            <LinearGradientBrush.Transform>
+                                <TranslateTransform X="-12" Y="13.6"/>
+                            </LinearGradientBrush.Transform>
+                        </LinearGradientBrush>
+                    </Canvas.Resources>
+                    <Canvas.RenderTransform>
+                        <TransformGroup>
+                            <ScaleTransform/>
+                            <SkewTransform/>
+                            <RotateTransform Angle="90"/>
+                            <TranslateTransform X="0"/>
+                        </TransformGroup>
+                    </Canvas.RenderTransform>
+                    <!--Unknown tag: sodipodi:namedview-->
+                    <Canvas >
+                        <Canvas >
+                            <Canvas.RenderTransform>
+                                <MatrixTransform Matrix="31.25 0 0 31.25 -325 -1250"/>
+                            </Canvas.RenderTransform>
+                            <Path xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"  Fill="{StaticResource linearGradient28634}">
+                                <Path.Data>
+                                    <PathGeometry Figures="m12 41.6h-1.6l0.8-1.6 0.8 1.6z" FillRule="NonZero"/>
+                                </Path.Data>
+                            </Path>
+                            <Path  Fill="{StaticResource linearGradient28654}">
+                                <Path.Data>
+                                    <PathGeometry Figures="m11.2 40.256l-0.625 1.25h1.25l-0.625-1.25z" FillRule="NonZero"/>
+                                </Path.Data>
+                            </Path>
+                            <Path Fill="{StaticResource linearGradient28651}">
+                                <Path.Data>
+                                    <PathGeometry Figures="m11.2 40.381l-0.531 1.063h1.062l-0.531-1.063z" FillRule="NonZero"/>
+                                </Path.Data>
+                            </Path>
+                            <Path  Fill="{StaticResource linearGradient28648}">
+                                <Path.Data>
+                                    <PathGeometry Figures="m11.176 40.553c-0.02 0.007-0.037 0.02-0.049 0.038-0.005 0.004-0.009 0.008-0.012 0.012l-0.207 0.43c-0.009 0.015-0.013 0.032-0.013 0.05 0.002 0.013 0.006 0.026 0.013 0.038 0.002 0.009 0.006 0.017 0.012 0.025 0.003 0.005 0.007 0.009 0.012 0.013 0.007 0.005 0.016 0.009 0.024 0.012 0.011 0.007 0.024 0.011 0.037 0.013h0.414c0.029-0.001 0.056-0.014 0.073-0.038 0.005-0.004 0.009-0.008 0.012-0.012 0.007-0.012 0.011-0.025 0.013-0.038 0-0.018-0.004-0.035-0.013-0.051 0.001-0.004 0.001-0.008 0-0.012l-0.207-0.43c-0.003-0.004-0.007-0.008-0.012-0.012-0.022-0.032-0.061-0.047-0.097-0.038z" FillRule="NonZero"/>
+                                </Path.Data>
+                            </Path>
+                        </Canvas>
+                    </Canvas>
+                    <!--Unknown tag: metadata-->
+                </Canvas>
+            </Viewbox>
+
+        </Grid>
         <Label x:Name="LbHeure" VerticalAlignment="Top" HorizontalAlignment="Center" Background="#FF91F9BC" Margin="0">12:00</Label>
     </Grid>
 </UserControl>
