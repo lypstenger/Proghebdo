@@ -71,7 +71,7 @@ namespace Proghebdo
 
             foreach (epingle ep in GdJour.Children.OfType<epingle>().ToList())
             {
-                ep.Max = GdJour.Height;
+                ep.Max = GdJour.ActualHeight-7;
             }
 
         }
