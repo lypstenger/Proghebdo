@@ -3,7 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-             xmlns:local="clr-namespace:Proghebdo"
+             xmlns:local="clr-namespace:Proghebdo" Loaded="UserControl_Loaded"
              mc:Ignorable="d" SizeChanged="UserControl_SizeChanged"
              d:DesignHeight="450" d:DesignWidth="800" MinWidth="160">
     <Grid x:Name="Gdecran" Tag="V" Margin="0,0,1,0">
@@ -45,16 +45,15 @@
             </Grid>
             <Grid x:Name="GdJour" MouseLeftButtonDown="Epingle_MouseLeftButtonDown" MouseMove="Epingle_MouseMove"  
                                 MouseLeftButtonUp="Epingle_MouseLeftButtonUp"  Margin="0,40,0,0" Width="100" Background="#3E91EA99" >
-               <Label Margin="62,-30,0,0" VerticalAlignment="Top" Background="#FFE82020" HorizontalAlignment="Left">essai</Label>
-               <local:epingle  MouseLeftButtonDown="Epingle_MouseLeftButtonDown_1"  MouseRightButtonUp="Tmp_MouseRightButtonUp"
-                                x:Name="Epingle" Height="428" Margin="-22,-30,0,0" 
-                                VerticalAlignment="Top" Width="44" HorizontalAlignment="Left">
+                <Label Margin="62,-30,0,0" VerticalAlignment="Top" Background="#FFE82020" HorizontalAlignment="Left">essai</Label>
+                <local:epingle  MouseLeftButtonDown="Epingle_MouseLeftButtonDown_1"  MouseRightButtonUp="Tmp_MouseRightButtonUp"
+                                x:Name="Epingle"  Margin="-22,-30,0,0" 
+                                Width="44" HorizontalAlignment="Left">
                 </local:epingle>
-                <local:epingle  MouseLeftButtonDown="Epingle_MouseLeftButtonDown_1" MouseRightButtonUp="Tmp_MouseRightButtonUp"
-                                 Height="428" Margin="-22,-30,0,0" 
-                                VerticalAlignment="Top" Width="44" HorizontalAlignment="Left">
-                </local:epingle>
-              </Grid>
+                <local:epingle  MouseLeftButtonDown="Epingle_MouseLeftButtonDown_1" 
+                                MouseRightButtonUp="Tmp_MouseRightButtonUp" 
+                                Margin="-22,-30,0,0" Width="44" HorizontalAlignment="Left"/>
+            </Grid>
         </StackPanel>
     </Grid>
 </UserControl>

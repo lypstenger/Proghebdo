@@ -3,7 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-             xmlns:local="clr-namespace:Proghebdo"
+             xmlns:local="clr-namespace:Proghebdo" 
              mc:Ignorable="d" Margin="0" MinWidth="20" Width="50"
              RenderTransformOrigin="0.5,0.5">
     <UserControl.RenderTransform>
@@ -11,12 +11,13 @@
             <ScaleTransform/>
             <SkewTransform/>
             <RotateTransform/>
-            <TranslateTransform x:Name="deplace"  X="0"/>
+            <TranslateTransform  x:Name="deplace"  X="0"/>
         </TransformGroup>
     </UserControl.RenderTransform>
-    <Grid MouseMove="Epingle_MouseMove"  x:Name="gdTemp" Background="#00AA0303" RenderTransformOrigin="0.5,0.5" Cursor="SizeWE">
+    <Grid MouseMove="Epingle_MouseMove" MouseLeftButtonUp="Epingle_MouseLeftButtonUp" x:Name="gdTemp"
+          Background="#FFAA0303" RenderTransformOrigin="0.5,0.5" Cursor="SizeWE">
         <Rectangle x:Name="rectangletemperature" Fill="#FF7D77E2" Margin="0,47,0,0"  HorizontalAlignment="Center" Width="8"/>
-        <Viewbox xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" Stretch="Uniform" Margin="0,27,0,0" VerticalAlignment="Top" Height="20">
+        <Viewbox MouseLeftButtonUp="Epingle_MouseLeftButtonUp" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" Stretch="Uniform" Margin="0,27,0,0" VerticalAlignment="Top" Height="20">
             <Canvas Name="svg9493" Width="50" Height="50">
                 <Canvas.RenderTransform>
                     <TranslateTransform X="0" Y="0"/>
@@ -98,7 +99,10 @@
                 <!--Unknown tag: metadata-->
             </Canvas>
         </Viewbox>
-        <Grid x:Name="Gdpostemp" MouseLeftButtonDown="Epingle_MouseLeftButtonDown"  MouseLeftButtonUp="Epingle_MouseLeftButtonUp" Height="14"  Margin="0,27,0,0" HorizontalAlignment="Stretch" VerticalAlignment="Top" Cursor="SizeNS" RenderTransformOrigin="0.5,0.5" >
+        <Grid x:Name="Gdpostemp" MouseLeftButtonDown="Epingle_MouseLeftButtonDown" 
+              MouseLeftButtonUp="Epingle_MouseLeftButtonUp" Height="14"  Margin="0,27,0,0"
+              HorizontalAlignment="Stretch" VerticalAlignment="Top" Cursor="SizeNS"
+              RenderTransformOrigin="0.5,0.5" Background="Black" >
             <Grid.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform/>
@@ -199,8 +203,12 @@
                     <!--Unknown tag: metadata-->
                 </Canvas>
             </Viewbox>
-            <Label x:Name="LbTemp" Grid.Column="1" Background="#FF161253" Content="15" FontSize="8" Padding="0" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Foreground="#FF7EF383" RenderTransformOrigin="0.5,0.5"></Label>
-            <Viewbox Stretch="Uniform" Margin="0,0,0,0" VerticalAlignment="Top" Height="14" Grid.Column="2">
+            <Label MouseLeftButtonUp="Epingle_MouseLeftButtonUp" x:Name="LbTemp" Grid.Column="1"
+                   Background="#FF161253" Content="15" FontSize="8" Padding="0"
+                   HorizontalContentAlignment="Center" VerticalContentAlignment="Center"
+                   Foreground="#FF7EF383" RenderTransformOrigin="0.5,0.5"
+                   ></Label>
+            <Viewbox MouseLeftButtonUp="Epingle_MouseLeftButtonUp" Stretch="Uniform" Margin="0,0,0,0" VerticalAlignment="Top" Height="14" Grid.Column="2">
                 <Canvas  Width="50" Height="50" RenderTransformOrigin="0.5,0.5">
                     <Canvas.Resources>
                         <LinearGradientBrush  x:Key="linearGradient28648" MappingMode="Absolute" StartPoint="23,28" EndPoint="23,27">

@@ -84,6 +84,8 @@ namespace Proghebdo
         private void Epingle_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
             if (current == null) { return; }
+
+
              posjoy = e.GetPosition(current);
             pointcurrent = e.GetPosition(GdJour);
             pointpas = e.GetPosition(GdJour);
@@ -146,8 +148,13 @@ namespace Proghebdo
         }
        private void Epingle_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
         {
+            if (current != null)
+            {
+                //current.Active = false;
+                current.current = null;
+            }
             current = null;
- 
+
         }
        private string convertHeure(double pos)
         {
@@ -160,12 +167,13 @@ namespace Proghebdo
   
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            epingle tmp= new epingle
+            epingle tmp = new epingle
             {
-                Height = 428,
-                Width=44,
+                //Height = 428,
+                Width = 44,
                 Margin = new Thickness(-22, -30, 0, 0),
-                VerticalAlignment = VerticalAlignment.Top,
+                Max = GdJour.ActualHeight - 7,
+                //VerticalAlignment = VerticalAlignment.Top,
                 HorizontalAlignment = HorizontalAlignment.Left,
             };
             tmp.MouseLeftButtonDown += Epingle_MouseLeftButtonDown_1;
@@ -182,7 +190,17 @@ namespace Proghebdo
         epingle current = null;
         private void Epingle_MouseLeftButtonDown_1(object sender, MouseButtonEventArgs e)
         {
+
             current = (epingle)(sender);
+            //if (current.Active== true)
+            //{
+            //    current = null;
+            //}
+        }
+
+        private void UserControl_Loaded(object sender, RoutedEventArgs e)
+        {
+            UserControl_SizeChanged(null, null);
         }
     }
 }

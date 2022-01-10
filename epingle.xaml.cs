@@ -44,7 +44,10 @@ namespace Proghebdo
             }
         }
         public double Max { get; set; }
-        public epingle()
+        //public bool Active { get; set; } = false;
+
+       public  Grid current = null;
+       public epingle()
         {
             InitializeComponent();
         }
@@ -56,9 +59,9 @@ namespace Proghebdo
         Point pointpas;
         public event Action<double[], double> position;
 
-        Grid current = null;
-        private void Epingle_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+         private void Epingle_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
+            //Active = true;
             posjoy = e.GetPosition(Gdpostemp);
             pointcurrent = e.GetPosition(gdTemp);
             pointpas = e.GetPosition(gdTemp);
@@ -67,6 +70,8 @@ namespace Proghebdo
 
         private void Epingle_MouseMove(object sender, MouseEventArgs e)
         {
+
+            //if (!Active) { return; }
             if (e.LeftButton == MouseButtonState.Pressed == true && current!=null)
             {
                pointcurrent = e.GetPosition(gdTemp);
@@ -87,16 +92,24 @@ namespace Proghebdo
 
                 DeplaceTemp.Y = (pointcurrent.Y );
                 LbTemp.Content = DeplaceTemp.Y;
-   
+                return;
 
             }
-
+            current = null;
         }
         private void Epingle_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
         {
             current = null;
+         }
+
+        private void LbTemp_MouseUp(object sender, MouseButtonEventArgs e)
+        {
 
         }
 
+        private void LbTemp_PreviewMouseLeftButtonUp(object sender, MouseButtonEventArgs e)
+        {
+
+        }
     }
 }
