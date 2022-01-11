@@ -24,8 +24,8 @@ namespace Proghebdo
         public MainWindow()
         {
             InitializeComponent();
-            programmateurJour.position += ProgrammateurJour_position;
-           lesdbgs = sk1.Children.OfType<Label>().ToList();
+            //programmateurJour.position += ProgrammateurJour_position;
+            lesdbgs = sk1.Children.OfType<Label>().ToList();
 
         }
 
