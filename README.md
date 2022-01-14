@@ -7,4 +7,4 @@
 
 <br/><br/><br/>
 
-![Alt text](/ProgHebdo.jpg?raw=true "Optional Title")
+![Alt text](/ProgHebdo.png?raw=true "Optional Title")
