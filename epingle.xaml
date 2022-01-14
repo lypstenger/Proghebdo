@@ -14,11 +14,14 @@
             <TranslateTransform  x:Name="deplace"  X="0"/>
         </TransformGroup>
     </UserControl.RenderTransform>
-    <Grid MouseMove="Epingle_MouseMove" MouseLeftButtonUp="Epingle_MouseLeftButtonUp" x:Name="gdTemp" RenderTransformOrigin="0.5,0.5" Cursor="SizeWE" Margin="0,0,0,-10">
+    <Grid MouseMove="Epingle_MouseMove" MouseLeftButtonUp="Epingle_MouseLeftButtonUp" x:Name="gdTemp"
+          RenderTransformOrigin="0.5,0.5" Cursor="SizeWE" Margin="0,0,0,-20">
         <Rectangle x:Name="rectangletemperature" Fill="#FF59FD51" Margin="0,27,0,0"  HorizontalAlignment="Center" 
                    Width="4" Height="250" VerticalAlignment="Top"/>
         <Label x:Name="LbHeure" VerticalAlignment="Top" HorizontalAlignment="Center" Background="{x:Null}" Margin="0" Foreground="#FF5AF8FF">00:00</Label>
-        <Button x:Name="Btsupp" VerticalAlignment="Top" HorizontalAlignment="Center" Background="#FF91F9BC" Margin="0,290,0,0" Click="Btsupp_Click">Supp</Button>
+        <Button x:Name="Btsupp" VerticalAlignment="Top" HorizontalAlignment="Center"
+                Background="#FF91F9BC" Margin="0,290,0,0" Click="Btsupp_Click" 
+                Cursor="Hand" FontFamily="/Proghebdo;component/#Heydings Controls" FontSize="20">T</Button>
         <Grid x:Name="Gdpostemp"  MouseWheel="gdTemp_MouseWheel" MouseLeftButtonDown="Epingle_MouseLeftButtonDown" 
               MouseLeftButtonUp="Epingle_MouseLeftButtonUp" Height="20"  Margin="0,18,0,0"
               HorizontalAlignment="Stretch" VerticalAlignment="Top" Cursor="SizeNS"
@@ -92,8 +95,7 @@
                             <TranslateTransform X="0"/>
                         </TransformGroup>
                     </Canvas.RenderTransform>
-                    <!--Unknown tag: sodipodi:namedview-->
-                    <Canvas >
+                     <Canvas >
                         <Canvas >
                             <Canvas.RenderTransform>
                                 <MatrixTransform Matrix="31.25 0 0 31.25 -325 -1250"/>
@@ -120,7 +122,6 @@
                             </Path>
                         </Canvas>
                     </Canvas>
-                    <!--Unknown tag: metadata-->
                 </Canvas>
             </Viewbox>
             <Label MouseLeftButtonUp="Epingle_MouseLeftButtonUp" x:Name="LbTemp" Grid.Column="1"
@@ -184,7 +185,6 @@
                             <TranslateTransform X="0"/>
                         </TransformGroup>
                     </Canvas.RenderTransform>
-                    <!--Unknown tag: sodipodi:namedview-->
                     <Canvas >
                         <Canvas >
                             <Canvas.RenderTransform>
@@ -212,7 +212,6 @@
                             </Path>
                         </Canvas>
                     </Canvas>
-                    <!--Unknown tag: metadata-->
                 </Canvas>
             </Viewbox>
 

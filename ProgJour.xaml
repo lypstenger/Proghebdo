@@ -5,8 +5,8 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:Proghebdo" Loaded="UserControl_Loaded"
              mc:Ignorable="d" SizeChanged="UserControl_SizeChanged"
-             Height="302" d:DesignWidth="800" MinWidth="440">
-    <Grid x:Name="Gdecran" Tag="V" Margin="0,0,1,0" Background="#FF252526">
+             Height="363" d:DesignWidth="800" MinWidth="440">
+    <Grid x:Name="Gdecran" Tag="V" Margin="0,0,1,0">
         <Line Tag="H"  X1="0" Y1="10" X2="{Binding ElementName=Gdecran,Path=ActualWidth}" Y2="10" Stroke="#FF21E1FF" Margin="60,0,0,0" />
         <Line X1="0" Y1="20" X2="{Binding ElementName=Gdecran,Path=ActualWidth}" Y2="20" Stroke="#FF21E1FF" Margin="60,0,0,0" Tag="H" />
         <Line X1="0" Y1="20" X2="{Binding ElementName=Gdecran,Path=ActualWidth}" Y2="20" Stroke="#FF21E1FF" Margin="60,0,0,0" Tag="H" />
@@ -26,8 +26,8 @@
         <Line X1="100" Stroke="#FF2557FF" Margin="60,0,0,0" Tag="V" X2="100" Y2="{Binding ElementName=Gdecran,Path=ActualHeight}" />
         <Line X1="100" Stroke="#FF2557FF" Margin="60,0,0,0" Tag="V" X2="100" Y2="{Binding ElementName=Gdecran,Path=ActualHeight}" />
         <Line X1="100" Stroke="#FF2557FF" Margin="60,0,0,0" Tag="V" X2="100" Y2="{Binding ElementName=Gdecran,Path=ActualHeight}" />
-        <StackPanel x:Name="Skmarge"   Orientation="Horizontal" Margin="0,0,0,-36">
-            <Grid x:Name="Gdmarge" Margin="0,0,0,37" Width="60" Background="#FF252526">
+        <StackPanel x:Name="Skmarge"   Orientation="Horizontal" Margin="0,0,0,0">
+            <Grid x:Name="Gdmarge" Margin="0,0,0,37" Width="60">
                 <Label Content="10" HorizontalAlignment="Right" Height="12" Margin="0,9,5,0" 
                VerticalAlignment="Top" Width="44" Padding="0" FontSize="10" HorizontalContentAlignment="Right" Foreground="#FF5AF8FF"/>
                 <Label Content="10" HorizontalAlignment="Right" Height="12" Margin="0,0,5,0" 
@@ -44,7 +44,8 @@
                         VerticalContentAlignment="Top" UseLayoutRounding="True" Click="Button_Click" Margin="1,4,0,0"/>
             </Grid>
             <Grid x:Name="GdJour" MouseLeftButtonDown="Epingle_MouseLeftButtonDown" MouseMove="Epingle_MouseMove"  
-                                MouseLeftButtonUp="Epingle_MouseLeftButtonUp"  Margin="0,0,0,0" Width="100" Background="#0291EA99" >
+                                MouseLeftButtonUp="Epingle_MouseLeftButtonUp"  Margin="0,0,0,0" Width="100"
+                  Background="#0291EA99" >
                 <Label x:Name="LbH" Margin="2,2,-86,0" VerticalAlignment="Top" Background="{x:Null}" HorizontalAlignment="Left"
                         Width="184" Foreground="#FF7080A2" Content="{Binding ElementName=LbJour,Path=Content}" 
                        FontWeight="Bold" FontSize="20">
@@ -57,10 +58,7 @@
                                 x:Name="Epingle"  Margin="-22,0,0,0" 
                                 Width="44" HorizontalAlignment="Left">
                 </local:epingle>
-                <local:epingle  MouseLeftButtonDown="Epingle_MouseLeftButtonDown_1" 
-                                MouseRightButtonUp="Tmp_MouseRightButtonUp" 
-                                Margin="-22,0,0,0" Width="44" HorizontalAlignment="Left"/>
-            </Grid>
+             </Grid>
         </StackPanel>
     </Grid>
 </UserControl>

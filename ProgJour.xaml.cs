@@ -54,22 +54,9 @@ namespace Proghebdo
             GdJour.Width = k * 96;
             Coeffquartheure = GdJour.Width / 96;
 
-            //if (position != null)
-            //{
-            //    //if (current == null) { return; }
-            //    double[] ds = new double[] {
-            //         (double)k,Coeffquartheure
-            //        };
-
-            //    position(ds, GdJour.ActualWidth);
-            //}
-            //GdJour.Height = Gdecran.ActualHeight;
-            // k = (int)(GdJour.Height / 25);
-            //GdJour.Height =( k * 25);
             double pasTemp = 50;//11 Skmarge.ActualHeight / 6;
             double pasTime = (GdJour.Width / 12);
-            //GdJour.Margin = new Thickness(0, (pasTemp), 0, 0);
-            for (int x = 0; x < 6; x++)
+             for (int x = 0; x < 6; x++)
             {
                 LsligneTemp[x].Y1 = LsligneTemp[x].Y2 = (pasTemp * (x + 1))+10;
                 LsEtiquettesTemp[x].Margin = new Thickness(0, (pasTemp * (x + 1) +(10-6)), 5, 0);
@@ -99,23 +86,70 @@ namespace Proghebdo
             if (current == null) { return; }
             GdJour.Children.Remove(current);
             GdJour.Children.Add(current);
-            //GdJour.Height = this.ActualHeight - 52;
             posjoy = e.GetPosition(current);
             pointcurrent = e.GetPosition(GdJour);
             pointpas = e.GetPosition(GdJour);
-            //if (position != null)
-            //{
-            //    double[] ds = new double[] {
-            //            current.deplace.X,
-            //            GdJour.Height,
-            //                posjoy.X,
+ 
+        }
+        public List<HH_Etat> Mesetats()
+        {
+            List<HH_Etat> l = new List<HH_Etat>();
+            foreach (epingle ep in (from ep in GdJour.Children.OfType<epingle>()
+                                    orderby ep.Deplace ascending
+                                    select ep).ToList())
+            {
+                l.Add(new HH_Etat(ep.Heure, ep.Température));
+            }
+            
 
-            //        (pointcurrent.X - pointpas.X),
-            //        };
+            return l;
+        }
 
-            //    position(ds, GdJour.ActualWidth);
-            //}
+        internal void Update(PlanningJour planningJour)
+        {
+            GdJour.Children.Clear();
+            foreach(HH_Etat he in planningJour.List_HH_Etat)
+            {
+                epingle tpepingle = DefEpingle();
+                tpepingle.Deplace = calcul_pos(he.Temps);
+                tpepingle.DeplaceTemp.Y = calcul_poscursor(he.Etat);
+                tpepingle.Heure = he.Temps;
+                tpepingle.Température = he.Etat;
 
+              GdJour.Children.Add(tpepingle);
+
+            }
+        }
+
+        private int  calcul_poscursor(int etat)
+        {
+            double coeffTemp = 250 / 25;
+            int res =(int) (250 - Math.Round(etat * coeffTemp));
+
+
+            return res;
+        }
+
+        private int calcul_pos(string h)
+        {
+            int hh = Convert.ToInt32(h.Split(new string[] { ":" }, StringSplitOptions.None)[0]);
+            int Min =(int) (Convert.ToInt32(h.Split(new string[] { ":" }, StringSplitOptions.None)[1])/15);
+            int position = (int)(((hh * 4)+Min) * Coeffquartheure);
+            return position;
+        }
+        private epingle DefEpingle()
+        {
+            epingle tmp = new epingle
+            {
+                Width = 44,
+                Margin = new Thickness(-22, 01, 0, 0),
+                Max = 250,
+                HorizontalAlignment = HorizontalAlignment.Left,
+            };
+            tmp.MouseLeftButtonDown += Epingle_MouseLeftButtonDown_1;
+            tmp.MouseRightButtonUp += Tmp_MouseRightButtonUp;
+            tmp.SuppEpingle += Tmp_SuppEpingle; ;
+            return tmp;
         }
 
         private void Epingle_MouseMove(object sender, MouseEventArgs e)
@@ -141,22 +175,7 @@ namespace Proghebdo
                 current.Heure = convertHeure(current.deplace.X);
 
 
-                int intpas = (int)(pointcurrent.X / Coeffquartheure);
-
-
-                //if (position != null)
-                //{
-                //    double[] ds = new double[] {
-                //        current.deplace.X,
-                //        GdJour.ActualWidth,
-                //    Coeffquartheure,
-                //    (pointcurrent.X - pointpas.X),
-                //    posjoy.X,
-                //    (double)intpas
-                //    };
-
-                //    position(ds, GdJour.ActualWidth);
-                //}
+                //intpas = (int)(pointcurrent.X / Coeffquartheure);
 
             }
 
@@ -165,7 +184,6 @@ namespace Proghebdo
         {
             if (current != null)
             {
-                //current.Active = false;
                 current.current = null;
             }
             current = null;
@@ -184,12 +202,10 @@ namespace Proghebdo
         {
             epingle tmp = new epingle
             {
-                //Height = 428,
-                Width = 44,
+                 Width = 44,
                 Margin = new Thickness(-22, 01, 0, 0),
                 Max =250,
-                //VerticalAlignment = VerticalAlignment.Top,
-                HorizontalAlignment = HorizontalAlignment.Left,
+                 HorizontalAlignment = HorizontalAlignment.Left,
             };
             tmp.MouseLeftButtonDown += Epingle_MouseLeftButtonDown_1;
             tmp.MouseRightButtonUp += Tmp_MouseRightButtonUp;

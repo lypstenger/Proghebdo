@@ -33,6 +33,18 @@ namespace Proghebdo
                 LbHeure.Content = value;
             }
         }
+        public int Température
+        {
+            get
+            {
+                return Convert.ToInt32( LbTemp.Content);
+            }
+            set
+            {
+                LbTemp.Content = value.ToString("00");
+            }
+          
+         }
         public double Deplace
         {
             get
@@ -45,7 +57,6 @@ namespace Proghebdo
             }
         }
         public double Max { get; set; }
-        //public bool Active { get; set; } = false;
 
         public Grid current = null;
         public epingle()
@@ -54,16 +65,12 @@ namespace Proghebdo
         }
         Point posjoy;
         Point pointcurrent;
-        double MovX_Val = 0;
-        double MovY_Val = 0;
-
         Point pointpas;
         public event Action<epingle> SuppEpingle;
         public int coeffTemp;
 
         private void Epingle_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
-            //Active = true;
             posjoy = e.GetPosition(Gdpostemp);
             pointcurrent = e.GetPosition(gdTemp);
             pointpas = e.GetPosition(gdTemp);
@@ -92,10 +99,11 @@ namespace Proghebdo
 
 
                 int k = (int)Math.Round(pointcurrent.Y / coeffTemp);
-                //DeplaceTemp.Y = k * coeffTemp;
-
+ 
                 DeplaceTemp.Y = (pointcurrent.Y+10);
                 LbTemp.Content = convertpostoTemp(DeplaceTemp.Y);
+                int pos = Convert.ToInt32(LbTemp.Content);
+                DeplaceTemp.Y = (int)(250 - Math.Round((double)pos * coeffTemp));
 
 
                 return;
@@ -112,29 +120,17 @@ namespace Proghebdo
         }
         private void Epingle_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
         {
+
             current = null;
         }
 
-        private void LbTemp_MouseUp(object sender, MouseButtonEventArgs e)
-        {
-
-        }
-
-        private void LbTemp_PreviewMouseLeftButtonUp(object sender, MouseButtonEventArgs e)
-        {
-
-        }
-
+  
         private void gdTemp_MouseWheel(object sender, MouseWheelEventArgs e)
         {
             coeffTemp = (int)Math.Round(Max / 25);
             coeffTemp = 10;
             int k = (int)(e.Delta / 100);
-
             DeplaceTemp.Y = DeplaceTemp.Y - (k * coeffTemp);
-
-
-            //DeplaceTemp.Y = DeplaceTemp.Y + 12;
             if (DeplaceTemp.Y < 0)
             {
                 DeplaceTemp.Y = 0;
@@ -148,7 +144,7 @@ namespace Proghebdo
 
             LbTemp.Content = convertpostoTemp(DeplaceTemp.Y);
             Point relativePoint = ((Grid)(sender)).PointToScreen(new Point(0, 0));
-            SetPosition((int)relativePoint.X + 22, (int)relativePoint.Y + 10);
+            SetPosition((int)relativePoint.X + 5, (int)relativePoint.Y + 10);
         }
         private void SetPosition(int a, int b)
         {

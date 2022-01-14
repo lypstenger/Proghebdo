@@ -4,21 +4,102 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Proghebdo"
-        mc:Ignorable="d"
-        Title="MainWindow" Height="714" Width="1294">
-    <Grid Background="#FF262727">
-        <StackPanel x:Name="sk1" HorizontalAlignment="Right" Height="285" Margin="0,70,59,0" VerticalAlignment="Top" Width="88">
-            <Label Content="0" Margin="0"/>
-            <Label Content="0" Margin="0"/>
-            <Label Content="0" Margin="0"/>
-            <Label Content="0" Margin="0"/>
-            <Label Content="0" Margin="0"/>
-            <Label Content="0" Margin="0"/>
-            <Label Content="0" Margin="0"/>
-            <Label Content="0" Margin="0"/>
-            <Label Content="0" Margin="0"/>
+        mc:Ignorable="d" Loaded="Window_Loaded"
+        Title="MainWindow" Height="714" Width="1153" ResizeMode="NoResize" WindowStyle="None" Icon="package_utility_time.png">
+    <Window.Resources>
+        <ResourceDictionary>
+
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="me.xaml"/>
+                <ResourceDictionary Source="GrilleBouge3A.xaml"/>
+                <ResourceDictionary Source="ScrollBar_Style.xaml"/>
+                <ResourceDictionary Source="boutons.xaml"/>
+                <ResourceDictionary Source="edit.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+            <Storyboard x:Key="OnMOUVE">
+                <ThicknessAnimationUsingKeyFrames Storyboard.TargetProperty="(FrameworkElement.Margin)" Storyboard.TargetName="skJours">
+                    <EasingThicknessKeyFrame x:Name="POSITION" KeyTime="0:0:0.4" Value="0,0,0,0"/>
+                </ThicknessAnimationUsingKeyFrames>
+            </Storyboard>
+
+        </ResourceDictionary>
+
+    </Window.Resources>
+
+
+    <Grid Background="#FF262727" >
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="653*"/>
+        </Grid.RowDefinitions>
+        <Grid Grid.Row="0" MouseLeftButtonDown="Titre_MouseLeftButtonDown" Background="#FF262727">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="4*"/>
+                <RowDefinition Height="11*"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="45"/>
+                <ColumnDefinition Width="224*"/>
+                <ColumnDefinition Width="803*"/>
+                <ColumnDefinition Width="35"/>
+                <ColumnDefinition Width="34*"/>
+                <ColumnDefinition Width="35"/>
+            </Grid.ColumnDefinitions>
+            <Image Margin="2" Grid.RowSpan="2" Source="package_utility_time.png"></Image>
+            <Label Content="Programmateur hebdomadaire" 
+                   Margin="0,0,0,0" Grid.Row="1" Padding="0" FontSize="14" Foreground="#FFF1F1F1" Grid.Column="1"/>
+            <Button  x:Name="MinimizeButton" Margin="0"
+                KeyboardNavigation.IsTabStop="False" Content="o" Grid.Column="3" Grid.Row="0" Grid.RowSpan="2"
+                Click="MinimizeWindow"   FontFamily="/Proghebdo;component/#Heydings Controls" Style="{DynamicResource titre}"
+                 />
+            <Button  x:Name="MaximizeButton" Margin="0" Grid.RowSpan="2" IsEnabled="False"
+                KeyboardNavigation.IsTabStop="False" Content="M" Grid.Column="4" Grid.Row="0"
+                Click="MaximizeWindow"   FontFamily="/Proghebdo;component/#Heydings Controls" Style="{DynamicResource titre}"
+                 />
+            <Button  x:Name="Quit" Margin="0" Grid.RowSpan="2"
+                KeyboardNavigation.IsTabStop="False" Content="O" Grid.Column="5" Grid.Row="0"
+             Click="Quit_MouseLeftButtonUp"  FontFamily="/Proghebdo;component/#Heydings Controls" Style="{DynamicResource Quit}"
+                 />
+        </Grid>
+        <Button  Content="Sauvegarde"  HorizontalAlignment="Left" Height="26" Margin="19,29,0,0" VerticalAlignment="Top" Width="116" Grid.Row="1" Click="Button_Click"/>
+        <Grid Margin="450,35,0,0" ClipToBounds="True" Grid.Row="1" Height="358" VerticalAlignment="Top" HorizontalAlignment="Left" Width="667">
+            <StackPanel x:Name="skJours" HorizontalAlignment="Left"  Margin="0,0,-39,-2404" VerticalAlignment="Top" Width="686" Height="2762">
+                <local:ProgJour x:Name="programmateurJour"  VerticalAlignment="Top" Height="366" HorizontalAlignment="Left" 
+Width="638" Jour="Lundi" Margin="0" RenderTransformOrigin="0.5,0.5">
+
+                </local:ProgJour>
+                <local:ProgJour x:Name="programmateurJour_Copy"  VerticalAlignment="Top" Height="366" HorizontalAlignment="Left" Width="638" Jour="Mardi" Margin="0,30,0,0"/>
+                <local:ProgJour x:Name="programmateurJour_Copy1"  VerticalAlignment="Top" Height="366" HorizontalAlignment="Left" Width="638" Jour="Mercredi" Margin="0,30,0,0"/>
+                <local:ProgJour x:Name="programmateurJour_Copy2"  VerticalAlignment="Top" Height="366" HorizontalAlignment="Left" Width="638" Jour="Jeudi" Margin="0,30,0,0"/>
+                <local:ProgJour x:Name="programmateurJour_Copy3"  VerticalAlignment="Top" Height="366" HorizontalAlignment="Left" Width="638" Jour="Vendredi" Margin="0,30,0,0"/>
+                <local:ProgJour x:Name="programmateurJour_Copy4"  VerticalAlignment="Top" Height="366" HorizontalAlignment="Left" Width="638" Jour="Samedi" Margin="0,30,0,0"/>
+                <local:ProgJour x:Name="programmateurJour_Copy5"  VerticalAlignment="Top" Height="366" HorizontalAlignment="Left" Width="638" Jour="Dimanche" Margin="0,30,0,0"/>
+            </StackPanel>
+        </Grid>
+        <StackPanel x:Name="skrdBs" HorizontalAlignment="Left" Height="199" Margin="306,117,0,0" Grid.Row="1" VerticalAlignment="Top" Width="139">
+            <RadioButton  Content="Lundi"  PreviewMouseLeftButtonUp="RadioButton_MouseLeftButtonUp" 
+                Style="{StaticResource RadioButtonStyle1}" Tag="0" ></RadioButton>
+            <RadioButton  Content="Mardi"  PreviewMouseLeftButtonUp="RadioButton_MouseLeftButtonUp" 
+                Style="{StaticResource RadioButtonStyle1}" Tag="-396"></RadioButton>
+            <RadioButton  Content="Mercredi"  PreviewMouseLeftButtonUp="RadioButton_MouseLeftButtonUp" 
+                Style="{StaticResource RadioButtonStyle1}" Tag="-792"></RadioButton>
+            <RadioButton  Content="Jeudi"  PreviewMouseLeftButtonUp="RadioButton_MouseLeftButtonUp" 
+                Style="{StaticResource RadioButtonStyle1}" Tag="-1188"></RadioButton>
+            <RadioButton  Content="Vendredi"  PreviewMouseLeftButtonUp="RadioButton_MouseLeftButtonUp" 
+                Style="{StaticResource RadioButtonStyle1}" Tag="-1584"></RadioButton>
+            <RadioButton  Content="Samedi"  PreviewMouseLeftButtonUp="RadioButton_MouseLeftButtonUp" 
+                Style="{StaticResource RadioButtonStyle1}" Tag="-1980"></RadioButton>
+            <RadioButton  Content="Dimanche"  PreviewMouseLeftButtonUp="RadioButton_MouseLeftButtonUp" 
+                Style="{StaticResource RadioButtonStyle1}" Tag="-2376"></RadioButton>
         </StackPanel>
-        <local:ProgJour x:Name="programmateurJour" Margin="208,197,0,0"  VerticalAlignment="Top" Height="327" HorizontalAlignment="Left" Width="638" Jour="Lundi"/>
-        <Button Content="Button" HorizontalAlignment="Left" Height="26" Margin="234,583,0,0" VerticalAlignment="Top" Width="162"/>
+        <ListBox MouseLeftButtonUp="Listfile_MouseLeftButtonUp" x:Name="Listfile"  Background="#FF1E1E1E" Foreground="#FF65FDB1" HorizontalAlignment="Left" Height="251" Margin="19,110,0,0" Grid.Row="1" VerticalAlignment="Top" Width="250"/>
+        <TextBox x:Name="TbFilexml"   HorizontalAlignment="Left" Height="23" Margin="19,73,0,0" Grid.Row="1" 
+                 TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="250"/>
+        <Button  Content="Sauvegarde"  HorizontalAlignment="Left" Height="26" Margin="19,29,0,0" VerticalAlignment="Top" Width="116" Grid.Row="1" Click="Button_Click"/>
+        <Button  Content="Ouvrir"  HorizontalAlignment="Left" 
+                 Height="26" Margin="153,29,0,0" VerticalAlignment="Top" Width="116" Grid.Row="1" Click="Button_Click_1" />
+        <TextBlock x:Name="TkFiletxt" HorizontalAlignment="Left" Height="185" Margin="450,443,0,0" Grid.Row="1" TextWrapping="Wrap" VerticalAlignment="Top" Width="667"/>
+        <Button Content="Génerer le fichier texte" HorizontalAlignment="Left" Height="25" Margin="450,398,0,0" Grid.Row="1" VerticalAlignment="Top" Width="250" Click="Button_Click_2"/>
     </Grid>
 </Window>
