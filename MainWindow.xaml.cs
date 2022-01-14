@@ -74,7 +74,6 @@ namespace Proghebdo
                 EnrPlaningjour.Add(Paj);
             }
             Saveconf();
-            Listfile.ItemsSource = dir.GetFiles("*.*").Where(s => s.Extension == ".xhml").ToList();
 
         }
 
@@ -84,10 +83,17 @@ namespace Proghebdo
             StreamWriter reader = new StreamWriter(TbFilexml.Text);
             mySerializer.Serialize(reader, (EnrPlaningjour));
             reader.Close();
+            Listfile.ItemsSource = dir.GetFiles("*.*").Where(s => s.Extension == ".xhml").ToList();
 
         }
         private void Loadconf()
         {
+
+            if (TbFilexml.Text.Trim() == "")
+            {
+                TbFilexml.Text = "default.xhml";
+                Saveconf();
+            }
             XmlSerializer mySerializer = new XmlSerializer(typeof(List<PlanningJour>));
             StreamReader reader = new StreamReader(TbFilexml.Text);
             EnrPlaningjour = (List<PlanningJour>)mySerializer.Deserialize(reader);
@@ -96,6 +102,7 @@ namespace Proghebdo
 
         private void Listfile_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
         {
+            if ((FileInfo)(Listfile.SelectedItem) == null) { return; }
             TbFilexml.Text = ((FileInfo)(Listfile.SelectedItem)).Name;
 
         }
